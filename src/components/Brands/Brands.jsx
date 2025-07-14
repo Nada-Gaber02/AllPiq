@@ -3,6 +3,7 @@ import style from './Brands.module.css'
 import axios from 'axios'
 import { useState } from 'react'
 import Spinner from '../Spinner/Spinner'
+import { Helmet } from 'react-helmet'
 // import { useQuery } from '@tanstack/react-query'
 
 export default function Brands() {
@@ -27,6 +28,9 @@ export default function Brands() {
         getBrandsProd()
     } , [])
     return <>
+    <Helmet>
+        <title>AllPiq - Brands</title>
+    </Helmet>
     <div className="container max-w-7xl mx-auto">
         <div className='flex flex-wrap gap-4 justify-center items-center '>
             {brandProd? <>

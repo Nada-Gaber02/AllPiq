@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom'
 import { cartContext } from '../../Context/CartContext'
 import toast, { Toaster } from 'react-hot-toast';
 import { wishListContext } from '../../Context/WishListContext'
-import { useQuery } from '@tanstack/react-query'
+import { Helmet } from 'react-helmet'
 
 
 export default function HomeProducts() {
@@ -14,16 +14,15 @@ export default function HomeProducts() {
     const [wishlistItems, setWishlistItems] = useState([]); 
 
     function HomeProducts() {
-        return axios.get('https://ecommerce.routemisr.com/api/v1/products')
+        axios.get('https://ecommerce.routemisr.com/api/v1/products').then(({data})=>{
+            // console.log(data);
+            setHomeProd(data?.data)
+            
+        }).catch((error)=>{
+            console.log(error);
+            
+        })
     }
-
-    let {data} = useQuery({
-        queryKey:['products'],
-        queryFn :HomeProducts,
-        select: (data)=>{
-        return data.data.data
-    }
-    })
 
     let {addToCart}= useContext(cartContext)
 
@@ -57,10 +56,13 @@ export default function HomeProducts() {
     },[])
 
     return <>
-    {data?.length > 0? 
+    <Helmet>
+        <title>AllPiq - Home</title>
+    </Helmet>
+    {homeProd?.length > 0? 
     <div className='container max-w-7xl mx-auto font-bold '>
         <div className='grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-1'>
-            {data?.map((prod)=>{
+            {homeProd?.map((prod)=>{
                 const isInWishlist = wishlistItems.includes(prod._id);
                 return (
                     <div key={prod.id} className=' mt-25'>

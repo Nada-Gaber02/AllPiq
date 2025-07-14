@@ -5,6 +5,7 @@ import Spinner from '../Spinner/Spinner';
 import { cartContext } from '../../Context/CartContext';
 import { wishListContext } from '../../Context/WishListContext';
 import toast from 'react-hot-toast';
+import { Helmet } from 'react-helmet';
 
 export default function Products() {
     const [searchTerm, setSearchTerm] = useState(''); 
@@ -80,6 +81,9 @@ export default function Products() {
 
     return (
         <>
+        <Helmet>
+                <title>AllPiq - Products</title>
+            </Helmet>
             <div className="container mx-auto max-w-7xl">
             
                 <input

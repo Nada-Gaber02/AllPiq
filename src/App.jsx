@@ -4,7 +4,6 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import './index.css';
 import {  createBrowserRouter, RouterProvider } from 'react-router-dom'
-
 import Layout from './components/Layout/Layout'
 import Login from './components/Login/Login.jsx'
 import Register from './components/Register/Register.jsx'
@@ -33,7 +32,7 @@ let queryClient = new QueryClient()
 function App() {
   let route = createBrowserRouter([
         {path:'' , element:<Layout/> , children:[
-          {index:true , element:<ProtectRoute><Home/></ProtectRoute>},
+          {path:'' , element:<ProtectRoute><Home/></ProtectRoute>},
           {path:'ProductDetails/:id/:category' , element:<ProtectRoute><ProductDetails/></ProtectRoute>},
           {path:'Cart' , element:<ProtectRoute><Cart/></ProtectRoute>},
           {path:'Checkout' , element:<ProtectRoute><Checkout/></ProtectRoute>},
@@ -47,7 +46,7 @@ function App() {
           {path:'VerificationCode' , element:<VerificationCode/>},
           {path:'NewPassword' , element:<NewPassword/>},
           {path:'Register' , element:<Register/>},
-          {path:'*' , element:<ErrorPage/>}
+          {path:'*' , element:<ProtectRoute>:<ErrorPage/></ProtectRoute>}
         ]}
     ])
 

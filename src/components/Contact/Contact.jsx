@@ -1,9 +1,13 @@
 import React, { use, useEffect, useState } from 'react'
 import styles from './Contact.module.css'
+import { Helmet } from 'react-helmet'
 
 export default function Contact() {
     
     return <>
+    <Helmet>
+        <title>AllPiq - Contact</title>
+    </Helmet>
     <div className="relative container max-w-lg mx-auto p-10 bg-white rounded-2xl shadow-lg  w-full">
         <div className='mt-30'>
             <div className="absolute inset-0 -z-10 transform rotate-6 bg-purple-400 rounded-2xl" />

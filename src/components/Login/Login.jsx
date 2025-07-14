@@ -6,6 +6,7 @@ import * as yup from 'yup'
 import axios from 'axios'
 import { useContext } from 'react'
 import { userContext } from '../../Context/UserContext'
+import {Helmet} from "react-helmet";
 
 export default function Login() {
 
@@ -44,6 +45,9 @@ export default function Login() {
     })
 
     return <>
+    <Helmet>
+        AllPiq - Login
+    </Helmet>
     <section className="bg-gray-100 h-screen flex items-center justify-center">
         <div className="h-screen bg-gradient-to-br flex justify-center items-center w-full">
             <form onSubmit={formik.handleSubmit} method="POST" action="#">

@@ -12,7 +12,7 @@ import slide8 from '../../assets/Images/download (4).jpeg'
 import slide9 from '../../assets/Images/apple.jpeg'
 import slide10 from '../../assets/Images/87e5f0bc-2c14-4408-86b2-c84a8e67047c.jpeg'
 import slide11 from '../../assets/Images/download (2).jpeg'
-import slide12 from '../../assets/Images/Lenovo IdeaPad Slim 5 82SF004XIN Launched in India ( 12th Gen Intel Core i7-1255U _ 16GB ram _ 512GB SSD ) _ Tech Stories India _ Technology News Online.jpeg'
+import slide12 from '../../assets/Images/playstation.jpeg'
 import slide13 from '../../assets/Images/Lenovo Tab Extreme _ Powerful 14_5 inch Android® tablet for your me-time.jpeg'
 import slide14 from '../../assets/Images/8ba69b6c-e997-4622-9975-b06dc570b13b.jpeg'
 import slide15 from '../../assets/Images/Mode_Style_YS.jpeg'
@@ -23,19 +23,26 @@ import slide16 from '../../assets/Images/Serena Pleated Handbag - Brown.jpeg'
 // import slide20 from '../../assets/Images/playstation.jpeg'
 import HomeProducts from '../HomeProducts/HomeProducts'
 import Slider from "react-slick";
+import { Helmet } from 'react-helmet'
 
 
 export default function Home() {
     
     function SampleNextArrow(props) {
     const { className, style, onClick } = props;
-    return (
-        <div
+    return <>
+    <Helmet>
+        <title>AllPiq - Home</title>
+    </Helmet>
+    <div
         className={className}
         style={{ ...style, display: "block", background: "#1C398E"  }}
         onClick={onClick}
         />
-        );
+    </>
+        
+        
+        
     }
 
     function SamplePrevArrow(props) {

@@ -4,6 +4,7 @@ import axios from 'axios'
 import { Link, useParams } from 'react-router-dom'
 import Slider from "react-slick";
 import Spinner from '../Spinner/Spinner';
+import { Helmet } from 'react-helmet';
 
 export default function ProductDetails() {
     const [prodDetails, setProdDetails] = useState(null)
@@ -71,6 +72,9 @@ export default function ProductDetails() {
 
 
     return <>
+    <Helmet>
+        <title>AllPiq - Product Details</title>
+    </Helmet>
     {prodDetails?
     <div className="container max-w-7xl mx-auto">
         <div className='flex flex-wrap items-center '>

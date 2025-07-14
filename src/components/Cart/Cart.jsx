@@ -3,6 +3,7 @@ import styles from './Cart.module.css'
 import { cartContext } from '../../Context/CartContext'
 import toast from 'react-hot-toast'
 import { Link } from 'react-router-dom'
+import { Helmet } from 'react-helmet'
 
 export default function Cart() {
     
@@ -30,9 +31,12 @@ export default function Cart() {
 
 
     return <>
+    <Helmet>
+        <title>AllPiq - cart</title>
+    </Helmet>
     {cartProducts? <>
-    <section className="w-full container max-w-8xl mx-auto bg-white dark:bg-[#0A2025] py-9 px-8">
-        <h1 className="text-center  text-[#191919] dark:text-white text-[32px] font-semibold mt-25">
+    <section className="w-full container max-w-8xl mx-auto bg-white py-9 px-8">
+        <h1 className="text-center  text-[#191919] text-[32px] font-semibold mt-25">
             My Shopping Cart
         </h1>
         <div className="flex flex-col md:flex-row  justify-center items-start mt-8 gap-6">

@@ -4,6 +4,7 @@ import { wishListContext } from '../../Context/WishListContext';
 import { cartContext } from '../../Context/CartContext';
 import { Link } from 'react-router-dom';
 import toast from 'react-hot-toast';
+import { Helmet } from 'react-helmet';
 
 export default function WishList() {
     let { wishListProducts, deleteWishList } = useContext(wishListContext);
@@ -38,6 +39,9 @@ export default function WishList() {
 
     return (
         <>
+        <Helmet>
+        <title>AllPiq - Wish List</title>
+    </Helmet>
             <div className="bg-white shadow-md rounded-md container max-w-7xl mx-auto p-5">
                 <h2 className="font-semibold mb-4 mt-25 text-3xl">My Wish List :</h2>
                 <ul className="mt-25">
