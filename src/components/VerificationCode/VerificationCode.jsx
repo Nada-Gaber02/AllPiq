@@ -6,6 +6,7 @@ import axios from 'axios'
 import { useContext } from 'react'
 import { userContext } from '../../Context/UserContext'
 import toast, { Toaster } from 'react-hot-toast';
+import { Helmet } from 'react-helmet'
 
 export default function VerifyResetCode() {
 
@@ -44,6 +45,9 @@ export default function VerifyResetCode() {
     })
 
     return <>
+    <Helmet>
+        <title>AllPiq - Verify</title>
+    </Helmet>
     <section className="bg-gray-100 h-screen flex items-center justify-center">
         <div className="h-screen bg-gradient-to-br flex justify-center items-center w-full">
             <form onSubmit={formik.handleSubmit} method="POST" action="#">

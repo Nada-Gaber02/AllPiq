@@ -5,6 +5,7 @@ import { userContext } from '../../Context/UserContext'
 import { Formik, useFormik } from 'formik'
 import axios from 'axios'
 import * as yup from 'yup'
+import { Helmet } from 'react-helmet'
 
 
 export default function NewPassword() {
@@ -43,6 +44,9 @@ export default function NewPassword() {
     })
 
     return <>
+    <Helmet>
+        <title>AllPiq - Reset Password</title>
+    </Helmet>
     <section className="bg-gray-100 h-screen flex items-center justify-center">
         <div className="h-screen bg-gradient-to-br flex justify-center items-center w-full">
             <form onSubmit={formik.handleSubmit} method="POST" action="#">

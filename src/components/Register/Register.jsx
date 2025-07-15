@@ -5,6 +5,7 @@ import { Formik, useFormik } from 'formik'
 import axios from 'axios'
 import * as yup from 'yup'
 import { userContext } from '../../Context/UserContext'
+import {Helmet} from "react-helmet";
 
 export default function Register() {
 
@@ -49,6 +50,9 @@ export default function Register() {
     })
     
     return <>
+    <Helmet>
+        <title>AllPiq - Register</title>
+    </Helmet>
     <section className="h-auto p-20 bg-gray-100 flex items-center justify-center">
         <div className=" bg-gradient-to-br  flex justify-center items-center w-full">
             <form method="POST" onSubmit={formik.handleSubmit} action="#">
