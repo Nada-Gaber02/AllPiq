@@ -65,7 +65,7 @@ export default function VerifyResetCode() {
                     <div>
                         {errorCodeMsg? <div className="flex justify-center items-center text-red-500 mt-4">{errorCodeMsg}</div> : null}
                     </div>
-                    <button type="submit" value="login" id="login" className="my-6 w-full  shadow-xl bg-gradient-to-tr from-blue-950 to-purple-400 hover:to-blue-900 hover:text-white text-indigo-100 py-2 rounded-md text-lg tracking-wide transition duration-1000 cursor-pointer">
+                    <button type="submit" value="login" id="login" className="my-6 w-full  shadow-xl bg-gradient-to-tr from-blue-950 to-purple-400 hover:to-blue-900  hover:text-white text-indigo-100 py-2 rounded-md text-lg tracking-wide transition duration-1000 cursor-pointer">
                         {isLoading? <i className='fas fa-spinner fa-spin'></i> : 'Reset Password '}
                     </button>
                     

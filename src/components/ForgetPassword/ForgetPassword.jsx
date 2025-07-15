@@ -59,7 +59,7 @@ export default function ForgotPasswords() {
                     <div>
                         {errorEmailMsg? <div className="flex justify-center items-center text-red-500 mt-4">{errorEmailMsg}</div> : null}
                     </div>
-                    <button type="submit" value="login" id="login" className="my-6 w-full  shadow-xl bg-gradient-to-tr from-blue-950 to-purple-400 hover:to-blue-900 hover:text-white text-indigo-100 py-2 rounded-md text-lg tracking-wide transition duration-1000">
+                    <button type="submit" value="login" id="login" className="my-6 w-full crusor-pointer shadow-xl bg-gradient-to-tr from-blue-950 to-purple-400 hover:to-blue-900 hover:text-white text-indigo-100 py-2 rounded-md text-lg tracking-wide transition duration-1000">
                         {isLoading? <i className='fas fa-spinner fa-spin'></i> : 'Verify    '}
                     </button>
                     
