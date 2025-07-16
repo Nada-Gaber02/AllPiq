@@ -32,15 +32,11 @@ export default function Products() {
 
     useEffect(() => {
         getProducts();
-    }, []);
-
-    useEffect(() => {
         const filtered = products.filter((product) =>
             product.title.toLowerCase().includes(searchTerm.toLowerCase())
         );
         setFilteredProducts(filtered);
     }, [searchTerm, products]);
-
 
     const handleAddToCart = (id) => {
         addToCart(id)
@@ -75,8 +71,7 @@ export default function Products() {
             });
     };
 
-    return (
-        <>
+    return <>
         <Helmet>
             <title>AllPiq - Products</title>
         </Helmet>
@@ -134,5 +129,4 @@ export default function Products() {
                 )}
             </div>
         </>
-    );
 }
