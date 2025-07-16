@@ -5,13 +5,12 @@
   "homepage": "https://Nada-Gaber02.github.io/AllPiq",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist",
-    "build": "vite build",
-    "lint": "eslint .",
-    "preview": "vite preview"
-  },
+  "dev": "vite",
+  "build": "vite build",
+  "copy404": "copy dist\\index.html dist\\404.html",
+  "predeploy": "npm run build && npm run copy404",
+  "deploy": "gh-pages -d dist"
+},
   "dependencies": {
     "@fortawesome/fontawesome-free": "^6.7.2",
     "@tailwindcss/vite": "^4.1.11",

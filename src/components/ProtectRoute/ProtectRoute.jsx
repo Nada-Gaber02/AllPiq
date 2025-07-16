@@ -1,11 +1,13 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Navigate } from 'react-router-dom'
+import { userContext } from '../../Context/UserContext'
 
-export default function ProtectRoute(props) {
-    if (localStorage.getItem('userToken')!== null){
-        return props.children
-    }
-    else{
-        return <Navigate to= '/Login'/>
+export default function ProtectRoute({ children }) {
+    const { userLogin } = useContext(userContext);
+
+    if (userLogin !== null) {
+        return children;
+    } else {
+        return <Navigate to="/Login" />;
     }
 }

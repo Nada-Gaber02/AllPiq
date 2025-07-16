@@ -46,7 +46,7 @@ function App() {
           {path:'VerificationCode' , element:<VerificationCode/>},
           {path:'NewPassword' , element:<NewPassword/>},
           {path:'Register' , element:<Register/>},
-          {path:'*' , element:<ProtectRoute><ErrorPage/></ProtectRoute>}
+          {path:'*' , element:<ErrorPage/>}
         ]}
     ])
 
