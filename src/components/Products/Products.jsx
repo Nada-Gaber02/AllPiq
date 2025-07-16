@@ -31,7 +31,10 @@ export default function Products() {
     }
 
     useEffect(() => {
-        getProducts();
+    getProducts();
+    }, []);
+
+    useEffect(() => {
         const filtered = products.filter((product) =>
             product.title.toLowerCase().includes(searchTerm.toLowerCase())
         );

@@ -33,7 +33,7 @@ export default function Cart() {
     <Helmet>
         <title>AllPiq - cart</title>
     </Helmet>
-    {cartProducts? <>
+    {cartProducts?.length> 0? <>
     <section className="w-full container max-w-8xl mx-auto bg-white py-9 px-8">
         <h1 className="text-center  text-[#191919] text-[32px] font-semibold mt-25">
             My Shopping Cart

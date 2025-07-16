@@ -4,7 +4,6 @@ import { createContext, useEffect, useState } from "react";
 export let cartContext = createContext(0)
 
 export default function CartContextProvider(props){
-
     let headers = {
         token: localStorage.getItem('userToken')
     }

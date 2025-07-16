@@ -21,7 +21,7 @@ export default function Register() {
                 localStorage.setItem('userToken' , data?.token)
                 navigate('/')
                 setIsLoading(false)
-                setuserLogin(data?.tokenn)
+                setuserLogin(data?.token)
             }
             }).catch((error)=>{
                 setErrorMsg(error?.response?.data?.message)

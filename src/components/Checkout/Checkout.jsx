@@ -33,7 +33,7 @@ export default function Checkout() {
         axios.post(`https://ecommerce.routemisr.com/api/v1/orders/checkout-session/${cartId}?url=http://localhost:5173` , {
             shippingAdress: val
         } , {
-            headers : {token: localStorage.getItem('myToken')}
+            headers : {token: localStorage.getItem('userToken')}
         }).then((response)=>{
             console.log(response);
             if(response.data.status === 'success'){
@@ -44,7 +44,7 @@ export default function Checkout() {
             
         }).catch((error)=>{
             console.log(error);
-            
+            toast.error('error')
         })
     }
     const[onlinePayment,setonlinePayment]=useState(true)
@@ -93,10 +93,10 @@ export default function Checkout() {
                             </div>
                         </div>
                         <div className="mt-8 flex justify-end">
-                            <button onClick={()=>{setonlinePayment(false)}} className="bg-gradient-to-tr from-blue-950 to-purple-400 cursor-pointer text-white px-4 py-2 rounded-lg  w-100 m-auto  dark:hover:bg-teal-900">Pay Cash</button>
+                            <button type='submit' onClick={()=>{setonlinePayment(false)}} className="bg-gradient-to-tr from-blue-950 to-purple-400 cursor-pointer text-white px-4 py-2 rounded-lg  w-100 m-auto  dark:hover:bg-teal-900">Pay Cash</button>
                         </div>
                         <div className="mt-8 flex justify-end">
-                            <button onClick={()=>{setonlinePayment(true)}} className="bg-gradient-to-tr from-blue-950 to-purple-400 cursor-pointer text-white px-4 py-2 rounded-lg  w-100 m-auto dark:hover:bg-teal-900">Place Online</button>
+                            <button type='submit' onClick={()=>{setonlinePayment(true)}} className="bg-gradient-to-tr from-blue-950 to-purple-400 cursor-pointer text-white px-4 py-2 rounded-lg  w-100 m-auto dark:hover:bg-teal-900">Place Online</button>
                         </div>
                         </div>
                 </form>
@@ -105,21 +105,3 @@ export default function Checkout() {
     </>
 }
 
-{/* Payment Information */}
-                        {/* <div>
-                            <h2 className="text-xl font-semibold text-gray-700  mb-2">Payment Information</h2>
-                            <div className="mt-4">
-                            <label htmlFor="card_number" className="block text-gray-700  mb-1">Card Number</label>
-                            <input type="text" id="card_number" className="w-full rounded-lg border py-2 px-3 border-green-600" />
-                            </div>
-                            <div className="grid grid-cols-2 gap-4 mt-4">
-                            <div>
-                                <label htmlFor="exp_date" className="block text-gray-700  mb-1">Expiration Date</label>
-                                <input type="text" id="exp_date" className="w-full rounded-lg border py-2 px-3 border-green-600" />
-                            </div>
-                            <div>
-                                <label htmlFor="cvv" className="block text-gray-700  mb-1">CVV</label>
-                                <input type="text" id="cvv" className="w-full rounded-lg border py-2 px-3 border-green-600" />
-                            </div>
-                            </div>
-                        </div> */}

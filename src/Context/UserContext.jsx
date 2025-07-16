@@ -15,6 +15,4 @@ export default function UserContextProvider(props){
     return <userContext.Provider value={{userLogin, setuserLogin}}>
         {props.children}
     </userContext.Provider>
-    
-    
 }

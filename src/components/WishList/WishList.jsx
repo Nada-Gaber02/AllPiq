@@ -44,7 +44,7 @@ export default function WishList() {
             <div className="bg-white shadow-md rounded-md container max-w-7xl mx-auto p-5">
                 <h2 className="font-semibold mb-4 mt-25 text-3xl">My Wish List :</h2>
                 <ul className="mt-25">
-                    {wishListProducts?.legnth? <>
+                    {wishListProducts?.length > 0 ? <>
                     {wishListProducts?.map((prod) => {
                         return (
                             <li key={prod._id} className="flex items-center justify-between py-2 border-b border-gray-300">
