@@ -32,11 +32,15 @@ export default function Products() {
 
     useEffect(() => {
         getProducts();
+    }, []);
+
+    useEffect(() => {
         const filtered = products.filter((product) =>
             product.title.toLowerCase().includes(searchTerm.toLowerCase())
         );
         setFilteredProducts(filtered);
     }, [searchTerm, products]);
+
 
     const handleAddToCart = (id) => {
         addToCart(id)
@@ -71,7 +75,8 @@ export default function Products() {
             });
     };
 
-    return <>
+    return (
+        <>
         <Helmet>
             <title>AllPiq - Products</title>
         </Helmet>
@@ -84,6 +89,8 @@ export default function Products() {
                 className="w-full mt-35 p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-900"
             />
         </div>
+
+        
             <div className="container max-w-7xl mx-auto mt-5">
                 {isLoading ? (
                     <Spinner />
@@ -127,4 +134,5 @@ export default function Products() {
                 )}
             </div>
         </>
+    );
 }
