@@ -1,5 +1,4 @@
 import React from 'react'
-import styles from './Spinner.module.css'
 import { ColorRing } from 'react-loader-spinner'
 
 export default function Spinner() {

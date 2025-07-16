@@ -1,10 +1,9 @@
-import React, { use, useContext, useEffect, useState } from 'react'
-import styles from './HomeProducts.module.css'
+import React, {  useContext, useEffect, useState } from 'react'
 import axios from 'axios'
 import Spinner from '../Spinner/Spinner'
 import { Link } from 'react-router-dom'
 import { cartContext } from '../../Context/CartContext'
-import toast, { Toaster } from 'react-hot-toast';
+import toast from 'react-hot-toast';
 import { wishListContext } from '../../Context/WishListContext'
 import { Helmet } from 'react-helmet'
 
@@ -44,7 +43,6 @@ export default function HomeProducts() {
         if(response?.data?.status === 'success'){
             toast.success('Product Added to whish List')
             setWishlistItems((prev) => [...prev, id]);
-            return <i class="fa-solid fa-heart px-4 text-2xl" style="color: #ed2c2c;"></i>
         }else{
             toast.error("Something Went Wrong")
         }

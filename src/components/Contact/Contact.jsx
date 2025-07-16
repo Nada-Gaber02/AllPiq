@@ -1,5 +1,4 @@
-import React, { use, useEffect, useState } from 'react'
-import styles from './Contact.module.css'
+import React from 'react'
 import { Helmet } from 'react-helmet'
 
 export default function Contact() {

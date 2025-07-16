@@ -1,5 +1,4 @@
-import React, { useEffect, useState, useContext } from 'react';
-import styles from './WishList.module.css';
+import React, { useContext } from 'react';
 import { wishListContext } from '../../Context/WishListContext';
 import { cartContext } from '../../Context/CartContext';
 import { Link } from 'react-router-dom';
@@ -39,7 +38,7 @@ export default function WishList() {
 
     return (
         <>
-        <Helmet>
+    <Helmet>
         <title>AllPiq - Wish List</title>
     </Helmet>
             <div className="bg-white shadow-md rounded-md container max-w-7xl mx-auto p-5">

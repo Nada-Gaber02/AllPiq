@@ -1,14 +1,14 @@
 import React, { useContext, useState } from 'react'
-import style from './Checkout.module.css'
 import { useFormik } from 'formik'
 import axios from 'axios';
 import { cartContext } from '../../Context/CartContext';
 import toast from 'react-hot-toast';
+import { Helmet } from 'react-helmet';
 
 export default function Checkout() {
     let{cartId , resetCart}=useContext(cartContext)
-    console.log('cartid',cartId);
-    
+    console.log('cartId',cartId);
+
     function payCash(val){
         console.log(val);
         axios.post(`https://ecommerce.routemisr.com/api/v1/orders/${cartId}` , {
@@ -66,6 +66,9 @@ export default function Checkout() {
     })
     
     return <>
+    <Helmet>
+        <title>AllPiq - Checkout</title>
+    </Helmet>
         <div className="bg-gray-100 ">
             <div className="w-full max-w-3xl mx-auto p-8">
                 <form onSubmit={formik.handleSubmit}>

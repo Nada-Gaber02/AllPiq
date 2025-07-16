@@ -3,7 +3,6 @@ import axios from 'axios';
 import Spinner from '../Spinner/Spinner';
 
 export default function Categories() {
-
     const [category, setcategory] = useState(null)
     function getCategories(){
         axios.get(`https://ecommerce.routemisr.com/api/v1/categories`).then(({data})=>{

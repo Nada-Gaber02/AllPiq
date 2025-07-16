@@ -1,21 +1,19 @@
-import React, { use, useContext, useEffect, useState } from 'react'
-import styles from './NewPassword.module.css'
-import { Link, useNavigate } from 'react-router-dom'
+import React, { useContext, useState } from 'react'
+import {  useNavigate } from 'react-router-dom'
 import { userContext } from '../../Context/UserContext'
-import { Formik, useFormik } from 'formik'
+import { useFormik } from 'formik'
 import axios from 'axios'
 import * as yup from 'yup'
 import { Helmet } from 'react-helmet'
 
 
 export default function NewPassword() {
-    
     const [errorMsg , setErrorMsg]=useState(null)
     const [isLoading  ,setIsLoading] = useState(false)
     let navigate = useNavigate()
     let{setuserLogin}=useContext(userContext) 
 
-    function login(values){
+    function newPass(values){
         setIsLoading(true)
         axios.put(`https://ecommerce.routemisr.com/api/v1/auth/resetPassword` , values).then(({data})=>{
             console.log(data);
@@ -39,7 +37,7 @@ export default function NewPassword() {
             email:'', 
             newPassword:'',
         },
-        onSubmit: login,
+        onSubmit: newPass,
         validationSchema: validate
     })
 
@@ -61,22 +59,17 @@ export default function NewPassword() {
                     </div>
                     <div className="flex flex-col space-y-2">
                         <label htmlFor="newPassword" className="text-black font-semibold text-sm">New Password</label>
-                        <input type="Password" id="passwsord" name="newPassword" placeholder="Enter your newPassword" value={formik.values.newPassword} onBlur={formik.handleBlur} onChange={formik.handleChange}  className="border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-900" required />
+                        <input type="Password" id="newPassword" name="newPassword" placeholder="Enter your New Password" value={formik.values.newPassword} onBlur={formik.handleBlur} onChange={formik.handleChange}  className="border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-900" required />
                         {formik.errors.newPassword && formik.touched.newPassword?<div className='bg-red-400'>{formik.errors.newPassword} </div>: null}
                     </div>
                     </div>
-                    
-                    
                     <div>
                         {errorMsg? <div className="flex justify-center items-center text-red-500 mt-4">{errorMsg}</div> : null}
                     </div>
-                    <button type="submit" value="login" id="login" className="my-6 w-full shadow-xl bg-gradient-to-tr from-blue-950 to-purple-400 hover:to-blue-900 hover:text-white text-indigo-100 py-2 rounded-md text-lg tracking-wide crusor-pointer transition duration-1000">
+                    <button type="submit" value="newPassword" id="newPassword" className="my-6 w-full shadow-xl bg-gradient-to-tr from-blue-950 to-purple-400 hover:to-blue-900 hover:text-white text-indigo-100 py-2 rounded-md text-lg tracking-wide crusor-pointer transition duration-1000">
                         {isLoading? <i className='fas fa-spinner fa-spin'></i> : 'Reset Pssword'}
                     </button>
-                    
-                    
                 </div>
-                
             </form>
         </div>
     </section>

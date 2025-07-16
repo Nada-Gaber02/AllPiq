@@ -1,5 +1,4 @@
-import React, { use, useEffect, useState } from 'react'
-import styles from './ProductDetails.module.css'
+import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import { Link, useParams } from 'react-router-dom'
 import Slider from "react-slick";
@@ -17,7 +16,6 @@ export default function ProductDetails() {
             })
             setRelatedProd(related)
             console.log('related' , related);
-            
         })
     }
     function productDetails(){
@@ -69,7 +67,6 @@ export default function ProductDetails() {
         }
         ]
     };
-
 
     return <>
     <Helmet>

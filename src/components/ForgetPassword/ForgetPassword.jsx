@@ -1,18 +1,15 @@
-import React, { useEffect, useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import React, {  useState } from 'react'
+import {  useNavigate } from 'react-router-dom'
 import { useFormik } from 'formik'
 import * as yup from 'yup'
 import axios from 'axios'
-import { useContext } from 'react'
-import { userContext } from '../../Context/UserContext'
-import toast, { Toaster } from 'react-hot-toast';
+import toast from 'react-hot-toast';
+import { Helmet } from 'react-helmet'
 
 export default function ForgotPasswords() {
-
     const [errorEmailMsg , setErrorEmailMsg]=useState(null)
     const [isLoading  ,setIsLoading] = useState(false)
     let navigate = useNavigate()
-    let{setuserLogin}=useContext(userContext)
 
     function forgotPasswords(values){
         // console.log(values);
@@ -24,6 +21,8 @@ export default function ForgotPasswords() {
                 toast.success('Reset code sent to your email')
                 setIsLoading(false)
                 navigate('/VerificationCode')
+            }else{
+                toast.error('Something Went wrong')
             }
             }).catch((error)=>{
                 setErrorEmailMsg(error.response.data.message);
@@ -42,6 +41,9 @@ export default function ForgotPasswords() {
     })
 
     return <>
+    <Helmet>
+        <title>AllPiq - Forget Password</title>
+    </Helmet>
     <section className="bg-gray-100 h-screen flex items-center justify-center">
         <div className="h-screen bg-gradient-to-br flex justify-center items-center w-full">
             <form onSubmit={formik.handleSubmit} method="POST" action="#">
@@ -59,8 +61,8 @@ export default function ForgotPasswords() {
                     <div>
                         {errorEmailMsg? <div className="flex justify-center items-center text-red-500 mt-4">{errorEmailMsg}</div> : null}
                     </div>
-                    <button type="submit" value="login" id="login" className="my-6 w-full crusor-pointer shadow-xl bg-gradient-to-tr from-blue-950 to-purple-400 hover:to-blue-900 hover:text-white text-indigo-100 py-2 rounded-md text-lg tracking-wide transition duration-1000">
-                        {isLoading? <i className='fas fa-spinner fa-spin'></i> : 'Verify    '}
+                    <button type="submit" value="verify" id="verify" className="my-6 w-full crusor-pointer shadow-xl bg-gradient-to-tr from-blue-950 to-purple-400 hover:to-blue-900 hover:text-white text-indigo-100 py-2 rounded-md text-lg tracking-wide transition duration-1000">
+                        {isLoading? <i className='fas fa-spinner fa-spin'></i> : 'Verify '}
                     </button>
                     
                 </div>

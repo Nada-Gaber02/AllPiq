@@ -1,14 +1,12 @@
 import React, { useContext, useState } from 'react'
-import styles from './Register.module.css'
 import { Link, useNavigate } from 'react-router-dom'
-import { Formik, useFormik } from 'formik'
+import {  useFormik } from 'formik'
 import axios from 'axios'
 import * as yup from 'yup'
 import { userContext } from '../../Context/UserContext'
 import {Helmet} from "react-helmet";
 
 export default function Register() {
-
     const [errorMsg , setErrorMsg]=useState(null)
     const [isLoading  ,setIsLoading] = useState(false)
     let navigate = useNavigate()
@@ -88,7 +86,7 @@ export default function Register() {
                     </div>
                     {errorMsg? <div className="flex justify-center items-center text-red-500 mt-4">
                         {errorMsg} </div> : null}
-                    <button type="submit" value="login" id="register" className="mt-6 cursor-pointer w-full shadow-xl bg-gradient-to-tr from-blue-900 to-purple-400 hover:to-blue-900 hover:text-white text-indigo-100 py-2 rounded-md text-lg tracking-wide transition duration-1000">
+                    <button type="submit" value="register" id="register" className="mt-6 cursor-pointer w-full shadow-xl bg-gradient-to-tr from-blue-900 to-purple-400 hover:to-blue-900 hover:text-white text-indigo-100 py-2 rounded-md text-lg tracking-wide transition duration-1000">
                         {isLoading? <i className='fas fa-spinner fa-spin'></i> : 'Register'}    
                     </button>
                 </div>

@@ -1,10 +1,9 @@
 import React, { useEffect } from 'react'
-import style from './Brands.module.css'
 import axios from 'axios'
 import { useState } from 'react'
 import Spinner from '../Spinner/Spinner'
 import { Helmet } from 'react-helmet'
-// import { useQuery } from '@tanstack/react-query'
+
 
 export default function Brands() {
     const [brandProd , setBrandProd] = useState(null)
@@ -17,13 +16,6 @@ export default function Brands() {
             console.log(error);
         })
     }
-    // let {isError , data , isLoading , isFetched , isFetsching} = useQuery({
-    //     queryKey:['brands'],
-    //     queryFn: getBrandsProd,
-    //     select:(data)=>{
-    //         return data?.data?.data
-    //     }
-    // })
     useEffect(()=>{
         getBrandsProd()
     } , [])

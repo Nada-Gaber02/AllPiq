@@ -1,5 +1,4 @@
-import React, { use, useContext, useEffect, useState } from 'react'
-import styles from './Cart.module.css'
+import React, { useContext} from 'react'
 import { cartContext } from '../../Context/CartContext'
 import toast from 'react-hot-toast'
 import { Link } from 'react-router-dom'
@@ -7,7 +6,7 @@ import { Helmet } from 'react-helmet'
 
 export default function Cart() {
     
-    let{cartId , numOfCartItems , cartProducts , totalPrice , update , deleteProd}=useContext(cartContext)
+    let{ numOfCartItems , cartProducts , totalPrice , update , deleteProd}=useContext(cartContext)
 
     async function handleUpdate(prodId , count){
         let response = await update(prodId , count)

@@ -1,33 +1,27 @@
-import React, { use, useEffect, useState } from 'react'
-import styles from './Home.module.css'
+import React from 'react'
 import HomeImg1 from '../../assets/Images/onlineShop.jpg'
 import slide1 from '../../assets/Images/menCloth.jpeg'
-import slide2 from '../../assets/Images/download (1).jpeg'
+import slide2 from '../../assets/Images/download1.jpeg'
 import slide3 from '../../assets/Images/4bd3cd0a-62cd-4aca-8cd3-9dd55a723ea8.jpeg'
 import slide4 from '../../assets/Images//10 ESSENTIAL Accessories For Men _ Spring 2020 List.jpeg'
 import slide5 from '../../assets/Images/Headphone.jpeg'
 import slide6 from '../../assets/Images/iPhone 16 series.jpeg'
 import slide7 from '../../assets/Images/Men-casual-outfitt.jpeg'
-import slide8 from '../../assets/Images/download (4).jpeg'
+import slide8 from '../../assets/Images/download4.jpeg'
 import slide9 from '../../assets/Images/apple.jpeg'
 import slide10 from '../../assets/Images/87e5f0bc-2c14-4408-86b2-c84a8e67047c.jpeg'
-import slide11 from '../../assets/Images/download (2).jpeg'
+import slide11 from '../../assets/Images/download2.jpeg'
 import slide12 from '../../assets/Images/playstation.jpeg'
-import slide13 from '../../assets/Images/Lenovo Tab Extreme _ Powerful 14_5 inch Android® tablet for your me-time.jpeg'
+import slide13 from '../../assets/Images/Lenovo Tab Extreme.jpeg'
 import slide14 from '../../assets/Images/8ba69b6c-e997-4622-9975-b06dc570b13b.jpeg'
 import slide15 from '../../assets/Images/Mode_Style_YS.jpeg'
 import slide16 from '../../assets/Images/Serena Pleated Handbag - Brown.jpeg'
-// import slide17 from '../../assets/Images/download (3).jpeg'
-// import slide18 from '../../assets/Images/download (5).jpeg'
-// import slide19 from '../../assets/Images/menCloth.jpeg'
-// import slide20 from '../../assets/Images/playstation.jpeg'
 import HomeProducts from '../HomeProducts/HomeProducts'
 import Slider from "react-slick";
 import { Helmet } from 'react-helmet'
 
 
 export default function Home() {
-    
     function SampleNextArrow(props) {
     const { className, style, onClick } = props;
     return <>
@@ -40,9 +34,6 @@ export default function Home() {
         onClick={onClick}
         />
     </>
-        
-        
-        
     }
 
     function SamplePrevArrow(props) {

@@ -1,14 +1,14 @@
-import React, { use, useEffect, useState } from 'react'
-import styles from './ErrorPage.module.css'
+import React from 'react'
 import error from '../../assets/Images/error.svg'
+import { Helmet } from 'react-helmet'
 
 export default function ErrorPage() {
-    // const [first, setfirst] = useState(second)
-    useEffect(()=>{},[])
     return <>
+    <Helmet>
+        <title>Error</title>
+    </Helmet>
     <div className='flex justify-center items-center h-screen'>
-        <img src={error} alt="" />
+        <img src={error} alt="error" />
     </div>
-
     </>
 }

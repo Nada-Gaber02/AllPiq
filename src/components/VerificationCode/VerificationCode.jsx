@@ -1,11 +1,9 @@
-import React, { useEffect, useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import React, { useState } from 'react'
+import {  useNavigate } from 'react-router-dom'
 import { useFormik } from 'formik'
 import * as yup from 'yup'
 import axios from 'axios'
-import { useContext } from 'react'
-import { userContext } from '../../Context/UserContext'
-import toast, { Toaster } from 'react-hot-toast';
+import toast from 'react-hot-toast';
 import { Helmet } from 'react-helmet'
 
 export default function VerifyResetCode() {
@@ -13,7 +11,7 @@ export default function VerifyResetCode() {
     const [errorCodeMsg , setErrorCodeMsg]=useState(null)
     const [isLoading  ,setIsLoading] = useState(false)
     let navigate = useNavigate()
-    let{setuserLogin}=useContext(userContext)
+    // let{setuserLogin}=useContext(userContext)
 
     function verifyResetCode(value){
         console.log('reset' , value);
@@ -65,12 +63,11 @@ export default function VerifyResetCode() {
                     <div>
                         {errorCodeMsg? <div className="flex justify-center items-center text-red-500 mt-4">{errorCodeMsg}</div> : null}
                     </div>
-                    <button type="submit" value="login" id="login" className="my-6 w-full  shadow-xl bg-gradient-to-tr from-blue-950 to-purple-400 hover:to-blue-900  hover:text-white text-indigo-100 py-2 rounded-md text-lg tracking-wide transition duration-1000 cursor-pointer">
+                    <button type="submit" value="resetPassword" id="resetPassword" className="my-6 w-full  shadow-xl bg-gradient-to-tr from-blue-950 to-purple-400 hover:to-blue-900  hover:text-white text-indigo-100 py-2 rounded-md text-lg tracking-wide transition duration-1000 cursor-pointer">
                         {isLoading? <i className='fas fa-spinner fa-spin'></i> : 'Reset Password '}
                     </button>
                     
                 </div>
-                
             </form>
         </div>
     </section>

@@ -13,16 +13,13 @@ export default function Products() {
     const [products, setProducts] = useState([]); 
     const [isLoading, setIsLoading] = useState(true); 
     const [wishlistItems, setWishlistItems] = useState([]); 
-
     const { addToCart } = useContext(cartContext);
     const { addToWishList } = useContext(wishListContext);
 
 
     function getProducts() {
         setIsLoading(true); 
-        axios
-            .get('https://ecommerce.routemisr.com/api/v1/products')
-            .then(({ data }) => {
+        axios.get('https://ecommerce.routemisr.com/api/v1/products').then(({ data }) => {
                 setProducts(data?.data);
                 setFilteredProducts(data?.data);
                 setIsLoading(false)
@@ -35,16 +32,11 @@ export default function Products() {
 
     useEffect(() => {
         getProducts();
-    }, []);
-
-
-    useEffect(() => {
         const filtered = products.filter((product) =>
             product.title.toLowerCase().includes(searchTerm.toLowerCase())
         );
         setFilteredProducts(filtered);
     }, [searchTerm, products]);
-
 
     const handleAddToCart = (id) => {
         addToCart(id)
@@ -79,23 +71,19 @@ export default function Products() {
             });
     };
 
-    return (
-        <>
+    return <>
         <Helmet>
-                <title>AllPiq - Products</title>
-            </Helmet>
+            <title>AllPiq - Products</title>
+        </Helmet>
             <div className="container mx-auto max-w-7xl">
-            
-                <input
-                    type="text"
-                    placeholder="Search for a product..."
-                    value={searchTerm}
-                    onChange={(e) => setSearchTerm(e.target.value)}
-                    className="w-full mt-35 p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-900"
-                />
-            </div>
-
-        
+            <input
+                type="text"
+                placeholder="Search for a product..."
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                className="w-full mt-35 p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-900"
+            />
+        </div>
             <div className="container max-w-7xl mx-auto mt-5">
                 {isLoading ? (
                     <Spinner />
@@ -139,5 +127,4 @@ export default function Products() {
                 )}
             </div>
         </>
-    );
 }
