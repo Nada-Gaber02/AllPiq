@@ -32,7 +32,7 @@ let queryClient = new QueryClient()
 function App() {
   let route = createBrowserRouter([
         {path:'' , element:<Layout/> , children:[
-          {index : true , element:<ProtectRoute><Home/></ProtectRoute>},
+          {path:'' , element:<ProtectRoute><Home/></ProtectRoute>},
           {path:'ProductDetails/:id/:category' , element:<ProtectRoute><ProductDetails/></ProtectRoute>},
           {path:'Cart' , element:<ProtectRoute><Cart/></ProtectRoute>},
           {path:'Checkout' , element:<ProtectRoute><Checkout/></ProtectRoute>},
